@@ -1,0 +1,29 @@
+\documentclass[tikz, border=0.5cm]{standalone}
+
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+
+\pgfmathsetmacro\w{6}
+\pgfmathsetmacro\whratio{6}
+\pgfmathsetmacro\dx{1.5}
+\pgfmathsetmacro\h{5}
+
+\begin{tikzpicture}
+    % shape
+    \node (top inner edge) at (0,\h) [ellipse, draw, minimum width = \w cm, minimum height = \w cm/\whratio] {};
+    \node (top outer edge) at (0,\h) [ellipse, draw, minimum width = \w cm+2*\dx cm, minimum height = \w cm/\whratio+\dx cm] {};
+    \draw
+        (top outer edge.west)
+        -- +(0,-\h) arc(-180:0:{\w/2+\dx} and {\w/\whratio/2+\dx})
+        -- node[label=right:{\Large $h$}]{} (top outer edge.east);
+
+    % labels
+    \draw
+        (top inner edge.center) edge[|<->|] node[style={fill=white}]{\Large $x_i$} (top inner edge.east)
+        (top inner edge.east) edge[<->|] node[style={fill=white}]{\large $\Delta x$} (top outer edge.east);
+\end{tikzpicture}
+
+\end{document}

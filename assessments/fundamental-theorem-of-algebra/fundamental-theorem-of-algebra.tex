@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[paper=a4paper]{geometry}
+
+\author{Zac Hart}
+\title{{\bf Extension 2 - Assessment Task 1}\\{\large The Fundamental Theorem of Algebra}}
+
+\begin{document}
+
+\maketitle
+
+\section{The Intermediate Value Theorem}
+
+If the function $f$ is continuous on the interval $[a,b]$, and if $f(a)$ and $f(b)$ have opposite signs, then it may be intuitive to say that $f$ has a root in the interval. This is indeed true, and is named \textit{Bolzano's theorem}.
+
+Bolzano's theorem is a direct consequence of the more general \textit{intermediate value theorem}, an important theorem in mathematical analysis. It states that if $f$ is a continuous function whose domain contains the interval $[a,b]$, then its range on that interval contains every value between $f(a)$ and $f(b)$. More formally, given a number $u$ between $f(a)$ and $f(b)$, there exists a $c$ such that $f(c) = u$.
+
+By proving this theorem, Bolzano's theorem can be inferred, and the proof is as follows.\\
+
+Consider the function $f$, which is continuous over the interval $[a,b]$. Let $S$ denote the set of all values of $x \in [a,b]$ such that $f(x) < u$, where $f(a) < u < f(b)$. It follows that $a$ is a member of $S$ since $f(a) < u$, so $S$ is non-empty. Additionally, $S$ is bounded above by $b$; hence by the completeness axiom, there exists a least upper bound $c$ of $S$. It follows that $c \in [a,b]$. We aim to prove that $f(c) = u$.\\
+
+Since $f$ is continuous on $[a,b]$ and $c \in [a,b]$, it follows by the definition for continuity that for any $\epsilon > 0$, there exists a $\delta \ge 0$ such that if $c - \delta < x < c + \delta$, then $f(c) - \epsilon < f(x) < f(c) + \epsilon$. Consider one such value of $\epsilon$ and the value of its corresponding $\delta$.
+
+By the properties of the supremum $c$, there exists some $x_0 \in (c - \delta, c]$ such that $f(x_0) < u$. Since $c - \delta < x_0 < c + \delta$, we also know that $f(c) - \epsilon < f(x_0) < f(c) + \epsilon$. From the left-hand side of this inequality, we have
+\begin{equation}
+    \label{eq:1}
+    f(c) < f(x_0) + \epsilon < u + \epsilon,
+\end{equation}
+hence $f(c) < u + \epsilon$.
+
+There also must exist some $x_1 \in [c, c + \delta)$ such that $f(x_1) \ge u$, since $c$ is the least upper bound of $S$. It follows that $c - \delta < x_1 < c + \delta$, hence $f(c) - \epsilon < f(x_1) < \f(c) + \epsilon$. From the right-hand side of this inequality, we have
+\begin{equation}
+    \label{eq:2}
+    f(c) > f(x_1) - \epsilon \ge u - \epsilon,
+\end{equation}
+hence $f(c) > u - \epsilon$.
+
+Combining (\ref{eq:1}) and (\ref{eq:2}), we finally obtain the inequality
+\begin{equation*}
+    u - \epsilon < f(c) < u + \epsilon.
+\end{equation*}
+
+\end{document}
