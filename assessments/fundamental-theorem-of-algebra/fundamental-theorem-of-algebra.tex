@@ -16,13 +16,19 @@
 
 \section{The Intermediate Value Theorem}
 
-If the function $f$ is continuous on the interval $[a,b]$, and if $f(a)$ and $f(b)$ have opposite signs, then it may be intuitive to say that $f$ has a root in the interval. This is indeed true, and is named \textit{Bolzano's theorem}.
+\subsection*{Bolzano's Theorem}
 
-Bolzano's theorem is a direct consequence of the more general \textit{intermediate value theorem}, an important theorem in mathematical analysis. It states that if $f$ is a continuous function whose domain contains the interval $[a,b]$, then its range on that interval contains every value between $f(a)$ and $f(b)$. More formally, given a number $u$ between $f(a)$ and $f(b)$, there exists a $c$ such that $f(c) = u$.
+If the function $f$ is continuous on the interval $[a,b]$, and if $f(a)$ and $f(b)$ have opposite signs, then it may be intuitive to say that $f$ has a root in the interval. This is indeed true, and the fact is named \textit{Bolzano's theorem}.
 
-By proving this theorem, Bolzano's theorem can be inferred, and the proof is as follows.\\
+\subsection*{Definition}
 
-Consider the function $f$, which is continuous over the interval $[a,b]$. Let $S$ denote the set of all values of $x \in [a,b]$ such that $f(x) < u$, where $f(a) < u < f(b)$. It follows that $a$ is a member of $S$ since $f(a) < u$, so $S$ is non-empty. Additionally, $S$ is bounded above by $b$; hence by the completeness axiom, there exists a least upper bound $c$ of $S$. It follows that $c \in [a,b]$. We aim to prove that $f(c) = u$.\\
+Bolzano's theorem is a direct consequence of the more general \textit{intermediate value theorem}, an important theorem in mathematical analysis. It states that if $f$ is a continuous function whose domain contains the interval $[a,b]$, then its range on that interval contains every value between $f(a)$ and $f(b)$. More formally, given a number $u$ between $f(a)$ and $f(b)$, there exists a $c$ such that $f(c) = u$ \parencite{wikipedia-ivt}. \smallskip
+
+By proving this theorem, Bolzano's theorem can be inferred.
+
+\subsection*{Proof}
+
+Consider the function $f$, which is continuous over the interval $[a,b]$. Let $S$ denote the set of all values of $x \in [a,b]$ such that $f(x) < u$, where $f(a) < u < f(b)$. It follows that $a$ is a member of $S$ since $f(a) < u$, so $S$ is non-empty. Additionally, $S$ is bounded above by $b$; hence by the completeness axiom, there exists a least upper bound $c$ of $S$. It follows that $c \in [a,b]$. We aim to prove that $f(c) = u$. \medskip
 
 Since $f$ is continuous on $[a,b]$ and $c \in [a,b]$, it follows by the definition for continuity that for any $\epsilon > 0$, there exists a $\delta \ge 0$ such that if $c - \delta < x < c + \delta$, then $f(c) - \epsilon < f(x) < f(c) + \epsilon$. Consider one such value of $\epsilon$ and the value of its corresponding $\delta$.
 
@@ -31,18 +37,52 @@ By the properties of the supremum $c$, there exists some $x_0 \in (c - \delta, c
     \label{eq:1}
     f(c) < f(x_0) + \epsilon < u + \epsilon,
 \end{equation}
-hence $f(c) < u + \epsilon$.
+hence $f(c) < u + \epsilon$. \smallskip
 
-There also must exist some $x_1 \in [c, c + \delta)$ such that $f(x_1) \ge u$, since $c$ is the least upper bound of $S$. It follows that $c - \delta < x_1 < c + \delta$, hence $f(c) - \epsilon < f(x_1) < \f(c) + \epsilon$. From the right-hand side of this inequality, we have
+There also must exist some $x_1 \in [c, c + \delta)$ such that $f(x_1) \ge u$, since $c$ is the least upper bound of $S$. It follows that $c - \delta < x_1 < c + \delta$, hence $f(c) - \epsilon < f(x_1) < f(c) + \epsilon$. From the right-hand side of this inequality, we have
 \begin{equation}
     \label{eq:2}
     f(c) > f(x_1) - \epsilon \ge u - \epsilon,
 \end{equation}
-hence $f(c) > u - \epsilon$.
+hence $f(c) > u - \epsilon$. \smallskip
 
 Combining (\ref{eq:1}) and (\ref{eq:2}), we finally obtain the inequality
 \begin{equation*}
     u - \epsilon < f(c) < u + \epsilon.
 \end{equation*}
+The only case where this evaluates to true is when $f(c) = u$, hencing proving the theorem \parencite{emory-ivt}.
+
+\section{The Fundamental Theorem of Algebra}
+
+\subsection*{Definition}
+
+The fundamental theorem of algebra states that every non-constant single-variable polynomial with complex cooefficients has at least one complex root. That is to say, given the complex polynomial $P(z) = \alpha_0 + \alpha_1 z + \alpha_2 z^2 + \dots + \alpha_n z^n$ ($n \ge 1$), there exists at least one complex number $z_0$ such that $P(z_0) = 0$ \parencite{wikipedia-ftoa}.
+
+\subsection*{Implications}
+
+An immediate consequence of the fundamental theorem is that every polynomial with complex coefficients of degree $n$ has exactly $n$ complex roots, as counted by their multiplicities. This can be proved via induction, assuming that the fundamental theorem is true. The proof is given below. \medskip
+
+We define the complex polynomial $P_n(z)$ to be of degree $n$, where $n \ge 1$.
+
+Suppose also that the result is true for $n = k$, that is, that $P_k(z)$ has exactly $k$ zeroes as counted by their multiplicities. \smallskip
+
+In the case where $n = k + 1$, we know by the fundamental theorem of algebra that $P_{k + 1}$ has at least one zero. We denote that zero as $\alpha_0$, so that
+\begin{equation*}
+    P_{k + 1}(z) = (z - \alpha_0)P_k(z).
+\end{equation*}
+Since $P_k(z)$ has $k$ zeroes, $P_{k + 1}$ must have exactly $k + 1$ zeroes, hence fulfilling the result; it follows that if the result is true for $n = k$, then it is also true for $n = k + 1$. \smallskip
+
+But the result is true for $n = 1$, since the equation $\alpha_0 z + c = 0$ has exactly one solution. Hence it is true for $n = 2, 3, \dots$, extending to all positive values of $n$ \parencite{ext2-textbook}.
+
+\subsection*{Intuition}
+Most proofs of the fundamental theorem require an extensive knowledge of complex analysis to understand. At present the author does not possess this knowledge, hence only a rough outline of the proof is given. \medskip
+
+Newton's method for finding the roots of polynomials involves making an approximation for a root, then adjusting said approximation in the appropriate direction. The proof involves the same principle - we will show that if the minimum absolute value of a complex polynomial function is not a root, then there is a nearby argument where the polynomial has a smaller absolute value; hence there is a contradiction and the minimum absolute value is a root, proving the theorem. \smallskip
+
+Consider the complex polynomial $P(z) = \alpha_0 + \alpha_1 z + \alpha_2 z^2 + \dots + \alpha_n z^n$, where $p_k \in \mathbb{C}$, and suppose that it has no roots in the complex plane. Construct a circle centred on the origin with radius $s$, and note that for sufficiently large $s$ the polynomial is continuous within the boundary of the circle. Thus, from the completeness axiom, $P(z)$ has a local minimum at some point $t$ inside - or on the boundary - of the circle. By some further logic - which is not included here - we can deduce that the minimum lies on the circle's interior. \smallskip
+
+Now translate the polynomial to the right by $t$ to obtain the new polynomial $Q(z) = P(z + t)$. It follows that $Q(z)$, defined on some circle centred on the origin, has a minimum absolute value at $z = 0$. Completing the proof involves constructing a point $x$ such that $|Q(x)| < |Q(0)|$, leading to a contradiction; this means that the original assumption is false and $P(z)$ has at least one root.
+
+\printbibliography
 
 \end{document}
