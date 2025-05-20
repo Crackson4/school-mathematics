@@ -1,14 +1,6 @@
 # Latex junk files
-**/*.aux
-**/*.fdb_latexmk
-**/*.fls
-**/*.log
-**/*.toc
+**/*.pdf
 **/*.synctex.gz
-**/*.run.xml
-**/*.bcf
 **/*.bbl
-**/*.blg
-**/*-blx.bib
 
 **/graphs/*.ggb
