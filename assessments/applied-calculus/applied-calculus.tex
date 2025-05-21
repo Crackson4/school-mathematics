@@ -85,5 +85,41 @@
                     therefore $y = \sin x$ is a solution.
           \end{enumerate}
 
+          % 3.
+    \item \begin{enumerate}
+              % 3.a.
+              \item Prove that if $f$ is a continuous function, then
+                    \begin{equation*}
+                        \int_0^a f(x) dx = \int_0^a f(a - x) dx.
+                    \end{equation*}
+
+                    Setting $u = a - x$, the RHS becomes
+                    \begin{align*}
+                        \int_a^0 -f(u) du     \\
+                         & = \int_0^a f(u) du \\
+                         & = \text{RHS}.
+                    \end{align*}
+
+                    % 3.b.
+              \item Use the result in part (a) to show that
+                    \begin{equation*}
+                        \int_0^\frac{\pi}{2} \frac{\sin^n x}{\sin^n x + \cos^n x} dx = \frac{\pi}{4}.
+                    \end{equation*}
+
+                    Let $I = \int_0^\frac{\pi}{2} \frac{\sin^n x}{\sin^n x + \cos^n x} dx$. \smallskip
+
+                    Using part (a) gives
+                    \begin{align*}
+                        I   & = \int_0^\frac{\pi}{2} \frac{\sin^n(\frac{\pi}{2} - x)}{\sin^n(\frac{\pi}{2} - x) + \cos^n(\frac{\pi}{2} - x)} dx \\
+                            & = \int_0^\frac{\pi}{2} \frac{\cos^n x}{\cos^n x + \sin^n x} dx,
+                        \intertext{hence}
+                        2 I & = I + \int_0^\frac{\pi}{2} \frac{\cos^n x}{\cos^n x + \sin^n x} dx                                                \\
+                            & = \int_0^\frac{\pi}{2} \frac{\sin^n x + \cos^n x}{\sin^n x + \cos^n x} dx                                         \\
+                            & = \int_0^\frac{\pi}{2} dx                                                                                         \\
+                            & = \frac{\pi}{2}.
+                    \end{align*}
+                    Thus $I = \frac{\pi}{4}$.
+          \end{enumerate}
+
 \end{enumerate}
 \end{document}
