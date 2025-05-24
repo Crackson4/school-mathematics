@@ -9,7 +9,7 @@
         % cone
         \addplot3[domain=0:4, y domain=0:2*pi, surf, shader=faceted interp, colormap/cool]({x}, {x*sin(deg(y))},{x*cos(deg(y))});
         % line
-        \addplot3[domain=0:4, thick, ->]({x}, 0, {x}) node[left, xshift=-2em] {$y=\frac{r}{h}x$};
+        \addplot3[domain=0:4, ultra thick, ->]({x}, 0, {x}) node[left, xshift=-2em] {$y=\frac{r}{h}x$};
     \end{axis}
 \end{tikzpicture}
 \end{document}
