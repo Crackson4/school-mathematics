@@ -1,6 +1,7 @@
 \documentclass{standalone}
 
 \usepackage{pgfplots}
+\usepackage{rsfso}
 
 \usetikzlibrary{angles, quotes, calc, intersections}
 
@@ -25,7 +26,9 @@
         \draw[thick, green!80!blue] (\b, 0) -- node[right, xshift=1cm, yshift=2mm] {$y = m x + b$} (10, {\m * (10 - \b)});
 
         % curve
-        \draw[thick, black] (P) node[left] {$P$} .. controls ({(\Px + \Qx) / 2}, \Py - 0.5) and ({(\Px + \Qx) / 2}, \Qy) .. node[above, xshift=-1cm] {$y = f(x)$} (Q) node[above] {$Q$} coordinate[pos=0.4] (M) coordinate[pos=0.55] (N);
+        \draw[thick, black] (P) node[left] {$P$} .. controls ({(\Px + \Qx) / 2}, \Py - 0.5) and ({(\Px + \Qx) / 2}, \Qy) .. node[above, xshift=-1cm] {$y = f(x)$} (Q) node[above] {$Q$}
+        coordinate[pos=0.4] (M)
+        coordinate[pos=0.55] (N);
 
         % ordinals
         \draw (P) -- ($(0, {-\m * \b})!(P)!(\b, 0)$);
@@ -45,8 +48,11 @@
         \draw[magenta] (M) -- (X1) (N) -- (X2);
         \draw[cyan] (U1) -- (M) (N) -- (U2);
 
-        \draw[magenta, <-] ([yshift=1mm]$(X1)!0.5!(X2)$) -- ++(4mm, 3mm) node[right, xshift=-1mm, yshift=2mm] {\small$\Delta x$};
-        \draw[cyan, |<->|] ([xshift=\m mm, yshift=-1 mm]U1) -- node[xshift=2*\m mm, yshift=-2mm] {\small$\Delta u$} ([xshift=\m mm, yshift=-1 mm]U2);
+        % labels
+        \draw[magenta, <-] ([yshift=1mm]$(X1)!0.5!(X2)$) -- ++(4mm, 3mm) node[right, xshift=-1mm, yshift=2mm] {\small$\Delta x_i$};
+        \draw[cyan, |<->|] ([xshift=\m mm, yshift=-1 mm]U1) -- node[xshift=2*\m mm, yshift=-2mm] {\small$\Delta u_i$} ([xshift=\m mm, yshift=-1 mm]U2);
+
+        \node at (6.5, 6.5) {$\mathcal{R}$};
         }
     \end{axis}
 \end{tikzpicture}

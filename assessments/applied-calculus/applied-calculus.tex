@@ -156,7 +156,7 @@
                     \end{align*}
 
                     % 4.b.
-              \item \textbf{If the semi-vertical angle of the apex of the cone is $\bm{\theta}$, show that the volume of the cone becomes $\bm{V = \frac{1}{3} \pi h^3 \tan^2{\theta}}$ .} \smallskip
+              \item \textbf{If the semi-vertical angle of the apex of the cone is $\bm{\theta}$, show that the volume of the cone becomes $\bm{V = \frac{1}{3} \pi h^3 \tan^2{\theta}}$.} \smallskip
 
                     The angle $\theta$ is labeled in \cref{fig:2}. Using trigonometry gives the relation $r = h \tan{\theta}$, hence by substituting into the equation of $V$,
                     \begin{align*}
@@ -181,6 +181,19 @@
                     \begin{equation*}
                         \bm{\frac{1}{1 + m^2} \int^p_q (f(x) - m x - b)(1 + m f'(x)) dx.}
                     \end{equation*}
+
+                    \begin{figure}[ht]
+                        \centering
+                        \includegraphics[width=0.7\textwidth]{graph-3.pdf}
+                        \caption{The region $\mathcal{R}$.}
+                        \label{fig:3}
+                    \end{figure}
+
+                    Integration is usually performed along the $x$ or $y$ axis, however we want to integrate along the line $y = m x + b$. This means that the idea of integration must be fundamentally re-evaluated.
+
+                    The area under the continuous function $f(x)$ in an interval is approximated by summing all of the rectangles with width $\Delta x_i$ and height $f(x_i)$ in said interval. As the number of rectangles approaches infinity, the error of the sum approaches zero until the sum exactly equals the area under the curve.
+
+                    Likewise, the area bounded by $f(x)$ and the line $y = m x + b$ is approximated by summing all the rectangles with width $\Delta u_i$ and height $f(u_i)$, then taking the limit as $\Delta u_i$ approaches zero (see \cref{fig:3}). We therefore want to express $\Delta u_i$ in terms of $\Delta x_i$ and integrate $f$ with respect to $u$.
           \end{enumerate}
 
 \end{enumerate}
