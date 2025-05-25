@@ -5,6 +5,7 @@
 \usepackage{caption}
 \usepackage{cleveref}
 \usepackage{graphicx}
+\usepackage{rsfso}
 
 \graphicspath{{graphs}}
 
@@ -47,9 +48,9 @@
                     hence $y = a e^{r_1 x} + b e^{r_2 x}$ is a solution to the differential equation.
           \end{enumerate}
 
-    \item \textbf{Which of the following functions are solutions of the differential equation $\bm{y'' + y = \sin x}$ ?} \smallskip
+    \item \textbf{Which of the following functions are solutions of the differential equation $\bm{y'' + y = \sin x}$ ?}
           \begin{enumerate}
-              \item $\bf{y = \sin x}$
+              \item $\bm{y = \sin x}$
 
                     \begin{align*}
                         \text{LHS} & = -\sin x + \sin x \\
@@ -94,7 +95,7 @@
           % 3.
     \item \begin{enumerate}
               % 3.a.
-              \item \textbf{Prove that if $f$ is a continuous function, then}
+              \item \textbf{Prove that if $\bm{f}$ is a continuous function, then}
                     \begin{equation*}
                         \bm{\int_0^a f(x) dx = \int_0^a f(a - x) dx.}
                     \end{equation*} \smallskip
@@ -171,5 +172,16 @@
                         \label{fig:2}
                     \end{figure}
           \end{enumerate}
+
+          % 5.
+    \item \textbf{We know how to find the volume of a solid of revolution obtained by rotating a region about a horizontal or vertical line. However, what if we rotate about a slanted line, that is, a line that is neither horizontal nor vertical? In this question you are asked to discover formulas for the volume of a solid of revolution when the axis of rotation is a slanted line. Let $\bm{y = f(x)}$ be the "upper" boundary of the region to be rotated for $\bm{[p, q]}$ and let $\bm{y = mx + b}$ be the line about which the rotation is to occur.}
+          \begin{enumerate}
+              % 5.a.
+              \item \textbf{Show that the area of the region $\mathcal{R}$ to be rotated is given by}
+                    \begin{equation*}
+                        \bm{\frac{1}{1 + m^2} \int^p_q (f(x) - m x - b)(1 + m f'(x)) dx.}
+                    \end{equation*}
+          \end{enumerate}
+
 \end{enumerate}
 \end{document}
