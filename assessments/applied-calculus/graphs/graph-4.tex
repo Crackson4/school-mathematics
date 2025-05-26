@@ -1,0 +1,46 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+
+\usetikzlibrary{angles, quotes, calc}
+
+\pgfplotsset{compat=newest}
+
+\begin{document}
+\begin{tikzpicture}
+    \pgfmathsetmacro{\width}{10}
+    \pgfmathsetmacro{\height}{10}
+    \pgfmathsetmacro{\M}{1.25}
+    \pgfmathsetmacro{\m}{3}
+    \pgfmathsetmacro{\b}{6}
+
+    \begin{axis}[axis lines=center, xlabel=$x$, ylabel=$y$, tick style={draw=none}, xticklabel=\empty, yticklabel=\empty, xmin=0, xmax=\width, ymin=0, ymax=\height, width=15cm, height=10cm]
+        % axis of rotation
+        \addplot[thick, green!80!blue, domain=\b:\width] {\m * (x - \b)} node[pos=0.5, right, xshift=2mm] {$y = m x + b$};
+
+        % tangent line
+        \addplot[thick, domain=0:\width] {\M * x} node[pos=0.4, left, yshift=-8mm, text width=4cm] {tangent to $f(x)$\\ at $(x_i, f(x_i))$}
+        coordinate[pos=0.4] (M)
+        coordinate[pos=0.5] (N);
+
+        % ordinals
+        \draw[magenta]
+        (M) -- ($(0, 0)!(M)!(1, 0)$) coordinate (X1)
+        (N) -- ($(0, 0)!(N)!(1, 0)$) coordinate (X2);
+        \draw[cyan]
+        (M) -- ($(\b, 0)!(M)!(0, {-\m * \b})$) coordinate (U1)
+        (N) -- ($(\b, 0)!(N)!(0, {-\m * \b})$) coordinate (U2);
+
+        % angles
+        \path (1, 0) coordinate (A) -- (0, 0) coordinate (O) -- (M) pic[draw, "$\alpha$", angle radius=1.2cm, angle eccentricity=0.7] {angle=A--O--M};
+        \path (\b + 1, 0) coordinate (A) -- (\b, 0) coordinate (B) -- (U1) pic[draw, "$\beta$", angle radius=1cm, angle eccentricity=0.6] {angle=A--B--U1};
+
+        % labels
+        \draw[magenta, <->] ([yshift=2mm]X1) -- node[above] {$\Delta x_i$} ([yshift=2mm]X2);
+        \draw[cyan, |<->|] ([xshift=1 mm, yshift=-0.5 mm]U1) -- node[right, yshift=-2mm] {$\Delta u_i$} ([xshift=1 mm, yshift=-0.5 mm]U2);
+        \draw[|<->|] ([xshift=-1mm, yshift=1mm]M) -- node[above, xshift=-4mm] {$\frac{\Delta x_i}{\cos \alpha}$} ([xshift=-1mm, yshift=1mm]N);
+
+        \draw[dashed] (M) -- ($(N)!(M)!(X2)$);
+    \end{axis}
+\end{tikzpicture}
+\end{document}

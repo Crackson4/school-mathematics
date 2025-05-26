@@ -9,15 +9,14 @@
 
 \begin{document}
 \begin{tikzpicture}
-    \begin{axis}[axis lines=center, xlabel=$x$, ylabel=$y$, tick style={draw=none}, xticklabel=\empty, yticklabel=\empty, xmin=0, xmax=10, ymin=0, ymax=10]
-        \pgfmathsetmacro{\Px}{2}
-        \pgfmathsetmacro{\Py}{4}
-        \pgfmathsetmacro{\Qx}{7}
-        \pgfmathsetmacro{\Qy}{8}
-        \pgfmathsetmacro{\m}{0.75}
-        \pgfmathsetmacro{\b}{1}
+    \pgfmathsetmacro{\Px}{2}
+    \pgfmathsetmacro{\Py}{4}
+    \pgfmathsetmacro{\Qx}{7}
+    \pgfmathsetmacro{\Qy}{8}
+    \pgfmathsetmacro{\m}{0.75}
+    \pgfmathsetmacro{\b}{1}
 
-        \pgfplotsextra{
+    \begin{axis}[axis lines=center, xlabel=$x$, ylabel=$y$, tick style={draw=none}, xticklabel=\empty, yticklabel=\empty, xmin=0, xmax=10, ymin=0, ymax=10]
         % endpoints of curve
         \coordinate (P) at (\Px, \Py);
         \coordinate (Q) at (\Qx, \Qy);
@@ -40,8 +39,8 @@
 
         \coordinate (X1) at ($(0, 0)!(M)!(1, 0)$);
         \coordinate (X2) at ($(0, 0)!(N)!(1, 0)$);
-        \coordinate (U1) at ($(0, {-\m * \b})!(M)!(\b, 0)$);
-        \coordinate (U2) at ($(0, {-\m * \b})!(N)!(\b, 0)$);
+        \coordinate (U1) at ($(\b, 0)!(M)!(0, {-\m * \b})$);
+        \coordinate (U2) at ($(\b, 0)!(N)!(0, {-\m * \b})$);
 
         % partition lines
         \draw (M) -- (N);
@@ -53,7 +52,6 @@
         \draw[cyan, |<->|] ([xshift=\m mm, yshift=-1 mm]U1) -- node[xshift=2*\m mm, yshift=-2mm] {\small$\Delta u_i$} ([xshift=\m mm, yshift=-1 mm]U2);
 
         \node at (6.5, 6.5) {$\mathcal{R}$};
-        }
     \end{axis}
 \end{tikzpicture}
 \end{document}
