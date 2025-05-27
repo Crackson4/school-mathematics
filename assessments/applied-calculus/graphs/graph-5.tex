@@ -1,0 +1,56 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+
+\usetikzlibrary{angles, quotes, calc}
+
+\pgfplotsset{compat=newest}
+
+\begin{document}
+\begin{tikzpicture}
+    \pgfmathsetmacro{\width}{10}
+    \pgfmathsetmacro{\height}{10}
+    \pgfmathsetmacro{\Ax}{2}
+    \pgfmathsetmacro{\Ay}{4}
+    \pgfmathsetmacro{\Bx}{5.5}
+    \pgfmathsetmacro{\By}{7}
+    \pgfmathsetmacro{\m}{5}
+    \pgfmathsetmacro{\b}{7}
+
+    \begin{axis}[axis lines=center, xlabel=$x$, hide y axis, tick style={draw=none}, xticklabel=\empty, xmin=0, xmax=\width, ymin=0, ymax=\height, width=15cm, height=10cm]
+        \coordinate (A) at (\Ax, \Ay);
+        \coordinate (B) at (\Bx, \By);
+        \coordinate (C) at ($(B)!(A)!(\Bx, 0)$);
+
+        % tangent line
+        \draw[thick] (A) node[left] {$A$} -- node[above, xshift=-4mm] {\Large$\frac{\Delta x_i}{\cos \alpha}$} (B) node[above] {$B$};
+
+        % ordinals
+        \draw[magenta]
+        (A) -- ($(0, 0)!(A)!(1, 0)$) coordinate (X1)
+        (B) -- ($(0, 0)!(B)!(1, 0)$) coordinate (X2);
+        \draw[cyan]
+        (A) -- ($(\b, 0)!(A)!(0, {-\m * \b})$) coordinate (U1)
+        (B) -- ($(\b, 0)!(B)!(0, {-\m * \b})$) coordinate (U2);
+
+        % axis of rotation
+        \addplot[thick, green!80!blue, domain=\b:\width] {\m * (x - \b)} node[pos=0.55, left, xshift=-2mm] {$y = m x + b$};
+
+        % labels
+        \draw[magenta, <->] ([yshift=2mm]X1) -- node[above] {$\Delta x_i$} ([yshift=2mm]X2);
+        \draw[cyan, |<->|] ([xshift=1 mm, yshift=-0.5 mm]U1) -- node[right, yshift=-2mm] {$\Delta u_i$} ([xshift=1 mm, yshift=-0.5 mm]U2);
+
+        % dashed lines
+        \draw[dashed] (A) -- (C) node[right] {$C$};
+        \draw[dashed] (U1) node[right, xshift=2.5mm] {$M$} -- ++(-2.5, 0) coordinate (P) node[left] {$N$};
+        \draw[dashed] (B) -- ($(A)!(B)!(U1)$) coordinate (D) node[below, xshift=-1mm] {$D$};
+
+        % angles
+        \path pic[draw, "$\alpha$", angle radius=1cm, angle eccentricity=0.7] {angle=C--A--B};
+        \path (\b + 1, 0) coordinate (M) -- (\b, 0) coordinate (N) -- (U1) pic[draw, "$\beta$", angle radius=0.8cm, angle eccentricity=0.6] {angle=M--N--U1};
+        \path pic[draw, angle radius=4mm] {right angle=U2--U1--A};
+        \path pic[draw, "$90 - \beta$", angle radius=1.5cm, angle eccentricity=1.5] {angle=A--U1--P};
+        \path pic[draw, "$90 - \beta$", angle radius=1.5cm, angle eccentricity=1.5] {angle=U1--A--C};
+    \end{axis}
+\end{tikzpicture}
+\end{document}
