@@ -22,7 +22,7 @@
         \coordinate (Q) at (\Qx, \Qy);
 
         % line
-        \draw[thick, green!80!blue] (\b, 0) -- node[right, xshift=1cm, yshift=2mm] {$y = m x + b$} (10, {\m * (10 - \b)});
+        \draw[thick, green!80!blue] (\b, 0) -- node[right, pos=0.8, yshift=-4mm] {$L$} (10, {\m * (10 - \b)});
 
         % curve
         \draw[thick, black] (P) node[left] {$P$} .. controls ({(\Px + \Qx) / 2}, \Py - 0.5) and ({(\Px + \Qx) / 2}, \Qy) .. node[above, xshift=-1cm] {$y = f(x)$} (Q) node[above] {$Q$}

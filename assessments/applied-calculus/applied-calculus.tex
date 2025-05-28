@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{bm}
 \usepackage{caption}
 \usepackage{cleveref}
@@ -36,16 +37,23 @@
                     \end{align*}
 
                     % 1.b.
-              \item \textbf{If $\bm{r_1}$ and $\bm{r_2}$ are the values of $\bm{r}$ that you found in part (a), show that every member of the family of functions $\bm{y = a e^{r_1 x} + b e^{r_2 x}}$ is also a solution.} \smallskip
+              \item \textbf{If $\bm{r_1}$ and $\bm{r_2}$ are the values of $\bm{r}$ that you found in part~(a), show that every member of the family of functions $\bm{y = a e^{r_1 x} + b e^{r_2 x}}$ is also a solution.} \smallskip
+
+                    Since $r_1$ and $r_2$ are both solutions to the equation $r^2 e^{r x} + r e^{r x} - e^{r x} = 0$,
+                    \begin{align*}
+                        r_1^2 e^{r_1 x} + r_1 e^{r_1 x} - e^{r_1 x} & = 0, \\
+                        r_2^2 e^{r_2 x} + r_2 e^{r_2 x} - e^{r_2 x} & = 0. \\
+                    \end{align*}
 
                     Again substituting for $y$,
                     \begin{align*}
                         \text{LHS} & = (a r_1^2 e^{r_1 x} + b r_2^2 e^{r_2 x}) + (a r_1 e^{r_1 x} + b r_2 e^{r_2 x}) - (a e^{r_1 x} + b e^{r_2 x}) \\
                                    & = (a r_1^2 e^{r_1 x} + a r_1 e^{r_1 x} - a e^{r_1 x}) + (b r_2^2 e^{r_2 x} + b r_2 e^{r_2 x} - b e^{r_2 x})   \\
+                                   & = a (r_1^2 e^{r_1 x} + r_1 e^{r_1 x} - e^{r_1 x}) + b (r_2^2 e^{r_2 x} + r_2 e^{r_2 x} - e^{r_2 x})           \\
                                    & = 0 + 0                                                                                                       \\
-                                   & = \text{RHS},
+                                   & = \text{RHS}.
                     \end{align*}
-                    hence $y = a e^{r_1 x} + b e^{r_2 x}$ is a solution to the differential equation.
+                    Hence every member of the family of functions $y = a e^{r_1 x} + b e^{r_2 x}$ is a solution to the differential equation.
           \end{enumerate}
 
     \item \textbf{Which of the following functions are solutions of the differential equation $\bm{y'' + y = \sin x}$ ?}
@@ -53,40 +61,42 @@
               \item $\bm{y = \sin x}$
 
                     \begin{align*}
-                        \text{LHS} & = -\sin x + \sin x \\
-                                   & = 0                \\
+                        \text{LHS} & = \frac{d^2}{dx^2} \sin x + \sin x \\
+                                   & = -\sin x + \sin x                 \\
+                                   & = 0                                \\
                                    & \neq \text{RHS},
                     \end{align*}
-                    therefore $y = \sin x$ is not a solution.
+                    therefore $y = \sin x$ is not a solution. \medskip
 
               \item $\bm{y = \cos x}$
 
                     \begin{align*}
-                        \text{LHS} & = -\cos x + \cos x \\
-                                   & = 0                \\
+                        \text{LHS} & = \frac{d^2}{dx^2} \cos x + \cos x \\
+                                   & = -\cos x + \cos x                 \\
+                                   & = 0                                \\
                                    & \neq \text{RHS},
                     \end{align*}
-                    therefore $y = \cos x$ is not a solution.
+                    therefore $y = \cos x$ is not a solution. \medskip
 
               \item $\bm{y = \frac{1}{2}x \sin x}$
 
                     \begin{align*}
-                        \text{LHS} & = \frac{d^2}{dx^2} \tfrac{1}{2}x \sin x                              \\
-                                   & = \tfrac{1}{2}\frac{d}{dx}[\sin x + x \cos x] + \tfrac{1}{2}x \sin x \\
-                                   & = \tfrac{1}{2}(\cos x + \cos x - x \sin x) + \tfrac{1}{2}x \sin x    \\
-                                   & = \cos x - \tfrac{1}{2}x \sin x + \tfrac{1}{2}x \sin x               \\
-                                   & = \cos x                                                             \\
+                        \text{LHS} & = \frac{d^2}{dx^2} \tfrac{1}{2} x \sin x + \tfrac{1}{2} x \sin x                            \\
+                                   & = \tfrac{1}{2}\frac{d}{dx}[\sin x + x \cos x] + \tfrac{1}{2} x \sin x                       \\
+                                   & = \tfrac{1}{2}(\cos x + \cos x - x \sin x) + \tfrac{1}{2} x \sin x                          \\
+                                   & = \tfrac{1}{2} \cos x + \tfrac{1}{2} \cos x - \tfrac{1}{2} x \sin x + \tfrac{1}{2} x \sin x \\
+                                   & = \cos x                                                                                    \\
                                    & \neq \text{RHS},
                     \end{align*}
-                    therefore $y = \sin x$ is not a solution.
+                    therefore $y = \sin x$ is not a solution. \medskip
               \item $\bm{y = -\frac{1}{2}x \cos x}$
 
                     \begin{align*}
-                        \text{LHS} & = \frac{d^2}{dx^2}[-\tfrac{1}{2}x \cos x]                             \\
-                                   & = -\tfrac{1}{2}\frac{d}{dx}[\cos x - x \sin x] + \tfrac{1}{2}x \cos x \\
-                                   & = -\tfrac{1}{2}(-\sin x - \sin x - x \cos x) - \tfrac{1}{2}x \cos x   \\
-                                   & = \sin x + \tfrac{1}{2}x \cos x - \tfrac{1}{2}x \cos x                \\
-                                   & = \sin x                                                              \\
+                        \text{LHS} & = \frac{d^2}{dx^2}[-\tfrac{1}{2} x \cos x] - \tfrac{1}{2} x \cos x                          \\
+                                   & = -\tfrac{1}{2}\frac{d}{dx}[\cos x - x \sin x] - \tfrac{1}{2} x \cos x                      \\
+                                   & = -\tfrac{1}{2}(-\sin x - \sin x - x \cos x) - \tfrac{1}{2} x \cos x                        \\
+                                   & = \tfrac{1}{2} \sin x + \tfrac{1}{2} \sin x + \tfrac{1}{2} x \cos x - \tfrac{1}{2} x \cos x \\
+                                   & = \sin x                                                                                    \\
                                    & = \text{RHS},
                     \end{align*}
                     therefore $y = \sin x$ is a solution.
@@ -100,32 +110,34 @@
                         \bm{\int_0^a f(x) dx = \int_0^a f(a - x) dx.}
                     \end{equation*} \smallskip
 
-                    Setting $u = a - x$, the RHS becomes
+                    Setting $u = a - x$, the RHS then becomes
                     \begin{align*}
                         \int_a^0 -f(u) du
                          & = \int_0^a f(u) du \\
-                         & = \text{RHS}.
+                         & = \int_0^a f(x) dx \\
+                         & = \text{LHS}.
                     \end{align*}
+                    Hence $\text{LHS} = \text{RHS}$ and the statement is true. \medskip
 
                     % 3.b.
-              \item \textbf{Use the result in part (a) to show that}
+              \item \textbf{Use the result in part~(a) to show that}
                     \begin{equation*}
                         \bm{\int_0^\frac{\pi}{2} \frac{\sin^n x}{\sin^n x + \cos^n x} dx = \frac{\pi}{4}.}
                     \end{equation*} \smallskip
 
                     Let $I = \int_0^\frac{\pi}{2} \frac{\sin^n x}{\sin^n x + \cos^n x} dx$. \medskip
 
-                    Using part (a) gives
+                    Using part~(a) gives
                     \begin{align*}
-                        I   & = \int_0^\frac{\pi}{2} \frac{\sin^n(\frac{\pi}{2} - x)}{\sin^n(\frac{\pi}{2} - x) + \cos^n(\frac{\pi}{2} - x)} dx \\
+                        I   & = \int_0^\frac{\pi}{2} \frac{\sin^n(\tfrac{\pi}{2} - x)}{\sin^n(\tfrac{\pi}{2} - x) + \cos^n(\tfrac{\pi}{2} - x)} dx          \\
                             & = \int_0^\frac{\pi}{2} \frac{\cos^n x}{\cos^n x + \sin^n x} dx,
                         \intertext{hence}
-                        2 I & = I + \int_0^\frac{\pi}{2} \frac{\cos^n x}{\cos^n x + \sin^n x} dx                                                \\
-                            & = \int_0^\frac{\pi}{2} \frac{\sin^n x + \cos^n x}{\sin^n x + \cos^n x} dx                                         \\
-                            & = \int_0^\frac{\pi}{2} dx                                                                                         \\
-                            & = \frac{\pi}{2}.
+                        2 I & = \int_0^\frac{\pi}{2} \frac{\sin^n x}{\sin^n x + \cos^n x} dx + \int_0^\frac{\pi}{2} \frac{\cos^n x}{\cos^n x + \sin^n x} dx \\
+                            & = \int_0^\frac{\pi}{2} \frac{\sin^n x + \cos^n x}{\sin^n x + \cos^n x} dx                                                     \\
+                            & = \int_0^\frac{\pi}{2} dx                                                                                                     \\
+                            & = \tfrac{\pi}{2}.
                     \end{align*}
-                    Thus $I = \frac{\pi}{4}$.
+                    It follows that $I = \frac{\pi}{4}$. \medskip
           \end{enumerate}
 
           % 4.
@@ -158,19 +170,20 @@
                     % 4.b.
               \item \textbf{If the semi-vertical angle of the apex of the cone is $\bm{\theta}$, show that the volume of the cone becomes $\bm{V = \frac{1}{3} \pi h^3 \tan^2{\theta}}$.} \smallskip
 
-                    The angle $\theta$ is labeled in \cref{fig:2}. Using trigonometry gives the relation $r = h \tan{\theta}$, hence by substituting into the equation of $V$,
-                    \begin{align*}
-                        V & = \tfrac{1}{3} \pi r^2 h                \\
-                          & = \tfrac{1}{3} \pi (h \tan{\theta})^2 h \\
-                          & = \tfrac{1}{3} \pi h^3 \tan^2{\theta}.
-                    \end{align*}
-
                     \begin{figure}[ht]
                         \centering
                         \includegraphics[width=0.5\textwidth]{graph-2}
                         \caption{A triangular cross-section of the cone.}
                         \label{fig:2}
                     \end{figure}
+
+                    The angle $\theta$ is labeled in \cref{fig:2}. Using trigonometry gives the relation $r = h \tan{\theta}$. By substituting this into the equation of $V$, we get
+                    \begin{align*}
+                        V & = \tfrac{1}{3} \pi r^2 h                \\
+                          & = \tfrac{1}{3} \pi (h \tan{\theta})^2 h \\
+                          & = \tfrac{1}{3} \pi h^3 \tan^2{\theta}.
+                    \end{align*}
+
           \end{enumerate}
 
           % 5.
@@ -184,7 +197,7 @@
 
                     \begin{figure}[ht]
                         \centering
-                        \includegraphics[width=0.7\textwidth]{graph-3.pdf}
+                        \includegraphics[width=0.5\textwidth]{graph-3.pdf}
                         \caption{The region $\mathcal{R}$.}
                         \label{fig:3}
                     \end{figure}
@@ -193,24 +206,139 @@
 
                     The area under the continuous function $f(x)$ in an interval is approximated by summing all of the rectangles with width $\Delta x_i$ and height $f(x_i)$ in said interval. As the number of rectangles approaches infinity, the error of the sum approaches zero until the sum exactly equals the area under the curve.
 
-                    Likewise, the area bounded by $f(x)$ and the line $y = m x + b$ is approximated by summing all the rectangles with width $\Delta u_i$ and height $f(u_i)$, then taking the limit as $\Delta u_i$ approaches zero (see \cref{fig:3}).
-
-                    We begin by expressing $\Delta u_i$ in terms of $\Delta x_i$.
+                    Likewise, the area bounded by $f(x)$ and the line $L: y = m x + b$ is approximated by summing all the rectangles with width $\Delta u_i$ and height $g(x_i)$ in the interval, where $g(x_i)$ is the perpendicular distance between $f(x_i)$ and $L$ (see \cref{fig:3}). The exact area is thus $\int_p^q g(x) du$.
 
                     \begin{figure}[ht]
                         \centering
-                        \includegraphics[width=0.9\textwidth]{graph-4.pdf}
+                        \includegraphics[width=0.8\textwidth]{graph-4.pdf}
                         \caption{The tangent line at a point on the curve.}
                         \label{fig:4}
                     \end{figure}
 
+                    We will henceforth be focusing on an arbitrary point $A(x_i, f(x_i))$ on the curve and the tangent at that point, as shown in \cref{fig:4}. Note that $\tan(\alpha) = f'(x_i)$ and $\tan(\beta) = m$.
+
+                    The ordinal through $A$ will always intersect with $L$ unless $L$ is vertical. This means that a triangle $\bigtriangleup ABC$ is formed (\cref{fig:5}) by which we can use trigonometry to find $g(x_i)$. Here, the intersection is assumed to lie below $A$; if it was above $A$ the length of $\overline{AB}$ would be negated.
+
+                    \clearpage
+
                     \begin{figure}[ht]
                         \centering
-                        \includegraphics[width=0.9\textwidth]{graph-5.pdf}
-                        \caption{A close-up view of \cref{fig:4}.}
+                        \includegraphics[width=0.5\textwidth]{graph-5.pdf}
+                        \caption{The triangle $\bigtriangleup ABC$.}
                         \label{fig:5}
                     \end{figure}
-          \end{enumerate}
 
+                    From \cref{fig:5}, the length of $\overline{AB}$ is $|f(x_i) - (m x_i + b)|$. Additionally, the angle $\angle{ABC}$ is determined by complimentary angles to be equal to $\tfrac{\pi}{2} - \beta$. We thus obtain a value for $g(x_i)$:
+                    \begin{align*}
+                        g(x_i) & = |f(x_i) - (m x_i + b)| \sin(\tfrac{\pi}{2} - \beta) \\
+                               & = |f(x_i) - m x_i - b| \cos\beta.
+                    \end{align*}
+                    Since $x_i$ is arbitrary, the equation generalises to
+                    \begin{equation}
+                        g(x) = |f(x) - m x - b| \cos\beta.
+                        \label{eq:1}
+                    \end{equation}
+                    \smallskip
+
+                    We will now express $\Delta u_i$ in terms of $\Delta x_i$, which is is done using basic trigonometry as shown in \cref{fig:6}.
+
+                    From corresponding angles, we have
+                    \begin{align*}
+                        \angle{NMA} + \tfrac{\pi}{2} + \beta = \pi \\
+                        \angle{NMA} = \tfrac{\pi}{2} - \beta
+                        \intertext{hence by alternating angles,}
+                        \angle{DAC} = \tfrac{\pi}{2} - \beta.
+                    \end{align*}
+
+                    \clearpage
+
+                    \begin{figure}[ht]
+                        \centering
+                        \includegraphics[width=0.9\textwidth]{graph-6.pdf}
+                        \caption{A close-up view of \cref{fig:4}.}
+                        \label{fig:6}
+                    \end{figure}
+
+                    Additionally, $\angle{BAC} = \alpha$ since $\overline{AB}$ is tangential to $y = f(x)$ at $A$.
+
+                    Adding the two angles,
+                    \begin{align*}
+                        \angle{BAD} & = \angle{DAC} + \angle{BAC}        \\
+                                    & = \tfrac{\pi}{2} - \beta + \alpha.
+                    \end{align*}
+
+                    The hypotenuse of $\bigtriangleup ABC$ can also be found by noting that $AC = \Delta x_i$, so $AB = \frac{\Delta x_i}{\cos\alpha}$.
+
+                    But $BD = \Delta u_i$, hence
+                    \begin{align*}
+                        \Delta u_i & = BD                                                                        \\
+                                   & = AB \sin(\tfrac{\pi}{2} - \beta + \alpha)                                  \\
+                                   & = \cos(\beta - \alpha) \frac{\Delta x_i}{\cos\alpha}                        \\
+                                   & = \frac{\cos\beta \cos\alpha + \sin\beta \sin\alpha}{\cos\alpha} \Delta x_i \\
+                                   & = (\cos\beta + \sin\beta \tan\alpha) \Delta x_i                             \\
+                                   & = \cos\beta (1 + \tan\beta \tan\alpha) \Delta x_i                           \\
+                                   & = \cos\beta (1 + m f'(x_i)) \Delta x_i
+                        \intertext{which again generalises to}
+                        \Delta u   & = \cos\beta (1 + m f'(x)) \Delta x.
+                    \end{align*}
+                    Taking the limit as $\Delta x \rightarrow 0$, we obtain a differential:
+                    \begin{equation}
+                        du = \cos\beta (1 + m f'(x)) dx.
+                        \label{eq:2}
+                    \end{equation}
+                    \smallskip
+
+                    As previously established, the area of $\mathcal{R}$ is equal to $\int_p^q g(x) du$. We can now substitute equations \eqref{eq:1} and \eqref{eq:2} into the integral to get
+                    \begin{align*}
+                        \int_p^q g(x) du & = \int_p^q |f(x) - m x - b| (1 + m f'(x)) \cos^2(\beta) dx             \\
+                                         & = \frac{1}{1 + \tan^2\beta} \int_p^q |f(x) - m x - b| (1 + m f'(x)) dx \\
+                                         & = \frac{1}{1 + m^2} \int_p^q |f(x) - m x - b| (1 + m f'(x)) dx.
+                    \end{align*}
+
+              \item \textbf{Derive the formula for the volume generated by rotating the function $\bm{f(x)}$ about the line $\bm{y = m x + b}$.} \smallskip
+
+                    If we treat the line $y = m x + b$ as the horizontal axis relative to $y = f(x)$, then the desired volume is $V = \pi \int_p^q [g(x)]^2 du$. Using the values for $g(x)$ and $du$ found in part~(a),
+                    \begin{align*}
+                        V & = \pi \int_p^q |f(x) - m x - b|^2 (1 + m f'(x)) \cos^3(\beta) dx                  \\
+                          & = \pi \cos^3\beta \int_p^q (f(x) - m x - b)^2 (1 + m f'(x)) dx                    \\
+                          & = \frac{\pi}{(1 + m^2)^\frac{3}{2}} \int_p^q (f(x) - m x - b)^2 (1 + m f'(x)) dx.
+                    \end{align*}
+
+              \item \textbf{Find the area of the blue shaded region and hence the volume for $\bm{y = x + \sin x}$ rotated about the line $\bm{y = x - 2}$.} \clearpage
+                    \begin{figure}[ht]
+                        \centering
+                        \includegraphics[width=0.5\textwidth]{graph-7.png}
+                        \caption{The function $y = x + \sin x$ over $[0, 2\pi]$, and its axis of rotation.}
+                        \label{fig:7}
+                    \end{figure}
+
+                    In this example, $f(x) = x + \sin x$, $m = 1$ and $b = -2$. The interval of integration is $[0, 2\pi]$. Using the formula for the area from part~(a),
+                    \begin{align*}
+                        A & = \frac{1}{1 + m^2} \int_p^q |f(x) - m x - b| (1 + m f'(x)) dx                                             \\
+                          & = \frac{1}{1 + 1^2} \int_0^{2\pi} |(x + \sin x) - x - (-2)| \left( 1 + \frac{d}{dx}[x + \sin x] \right) dx \\
+                          & = \tfrac{1}{2} \int_0^{2\pi} |\sin x + 2| (\cos x + 2) dx.
+                        \intertext{We can remove the absolute value sign since $\sin x + 2$ is always positive. Thus}
+                        A & = \tfrac{1}{2} \int_0^{2\pi} (\sin x + 2)(\cos x + 2) dx                                                   \\
+                          & = \tfrac{1}{2} \int_0^{2\pi} \sin x \cos x + 2\sin x + 2\cos x + 4 dx                                      \\
+                          & = \tfrac{1}{2} \left[ \tfrac{1}{2} \sin^2 x - 2\cos x + 2\sin x + 4x \right] \big|_0^{2\pi}                \\
+                          & = \tfrac{1}{2} ((-2 + 8\pi) - (-2))                                                                        \\
+                          & = \tfrac{8\pi}{2} = 4\pi.
+                    \end{align*}
+                    Therefore the area of the shaded region is $4\pi \text{ units}^2$. \smallskip
+
+                    To find the volume of the solid of revolution, we use the formula from part (b):
+                    \begin{align*}
+                        V & = \frac{\pi}{(1 + m^2)^\frac{3}{2}} \int_p^q (f(x) - m x - b)^2 (1 + m f'(x)) dx                                                                                                          \\
+                          & = \frac{\pi}{(1 + 1^2)^\frac{3}{2}} \int_0^{2\pi} ((x + \sin x) - x - (-2))^2 \left( 1 + \frac{d}{dx}[x + \sin x] \right) dx                                                              \\
+                          & = \frac{\pi}{2\sqrt{2}} \int_0^{2\pi} (\sin x + 2)^2 (\cos x + 2) dx                                                                                                                      \\
+                          & = \frac{\pi}{2\sqrt{2}} \left( \int_0^{2\pi} (\sin x + 2)^2 \cos(x) dx + \int_0^{2\pi} 2(\sin^2 x + 4\sin x + 4) dx \right)                                                               \\
+                          & = \frac{\pi}{2\sqrt{2}} \left( \left[ \tfrac{1}{3} (\sin x + 2)^3 \right] \big|_0^{2\pi} + 2 \left[ (\tfrac{1}{2} x - \tfrac{1}{4} \sin 2x) - 4\cos x + 4x \right] \big|_0^{2\pi} \right) \\
+                          & = \frac{\pi}{2\sqrt{2}} \left( (\tfrac{8}{3} - \tfrac{8}{3}) + 2 ((\pi - 4 + 8\pi) - (-4)) \right)                                                                                        \\
+                          & = \frac{\pi}{2\sqrt{2}} \cdot 2(9\pi)                                                                                                                                                     \\
+                          & = \frac{9\pi^2}{\sqrt{2}}                                                                                                                                                                 \\
+                          & = \tfrac{9}{2}\pi\sqrt{2}.
+                    \end{align*}
+                    The volume is therefore $\tfrac{9}{2}\pi\sqrt{2} \text{ units}^3$.
+          \end{enumerate}
 \end{enumerate}
 \end{document}

@@ -16,12 +16,12 @@
 
     \begin{axis}[axis lines=center, xlabel=$x$, ylabel=$y$, tick style={draw=none}, xticklabel=\empty, yticklabel=\empty, xmin=0, xmax=\width, ymin=0, ymax=\height, width=15cm, height=10cm]
         % tangent line
-        \addplot[thick, domain=0:\width] {\M * x} node[pos=0.4, left, yshift=-8mm, text width=4cm] {tangent to $f(x)$\\ at $(x_i, f(x_i))$}
+        \addplot[thick, domain=0:\width] {\M * x} node[pos=0.3, xshift=-7mm, text width=4cm] {tangent to\\ $f(x)$ at $A$}
         coordinate[pos=0.4] (M)
         coordinate[pos=0.5] (N);
 
         % axis of rotation
-        \addplot[thick, green!80!blue, domain=\b:\width] {\m * (x - \b)} node[pos=0.5, right, xshift=2mm] {$y = m x + b$};
+        \addplot[thick, green!80!blue, domain=\b:\width] {\m * (x - \b)} node[pos=0.5, right, xshift=2mm] {$L$};
 
         % ordinals
         \draw[magenta]
@@ -39,7 +39,7 @@
         \draw[magenta, <->] ([yshift=2mm]X1) -- node[above] {$\Delta x_i$} ([yshift=2mm]X2);
         \draw[cyan, |<->|] ([xshift=1 mm, yshift=-0.5 mm]U1) -- node[right, yshift=-2mm] {$\Delta u_i$} ([xshift=1 mm, yshift=-0.5 mm]U2);
         \fill[radius=0.8mm] (M) circle;
-        \draw[->] ([xshift=-5mm, yshift=5mm]M) node[above, xshift=-1mm, yshift=1mm] {$(x_i, f(x_i))$} -- ([xshift=-1mm, yshift=1mm]M);
+        \draw[->] ([xshift=-5mm, yshift=5mm]M) node[above, xshift=-1mm, yshift=1mm] {$A(x_i, f(x_i))$} -- ([xshift=-1mm, yshift=1mm]M);
 
         % dashed lines
         \draw[dashed] (M) -- ($(N)!(M)!(X2)$);
